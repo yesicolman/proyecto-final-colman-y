@@ -13,5 +13,4 @@ class AgregarDestino(forms.Form):
     pais=forms.CharField()
 
 class BuscaDestino(forms.Form):
-    nombre= forms.CharField()
-    pais=forms.CharField()
+    destino= forms.CharField()
