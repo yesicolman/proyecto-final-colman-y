@@ -24,7 +24,7 @@ def form_contacto(Request):
 
             if miFormulario.is_valid():
                  informacion = miFormulario.cleaned_data
-                 nombre= Usuarios(nombre=informacion["nombre"], apellido=informacion["apellido"],email=informacion["e-mail"], )
+                 nombre= Usuarios(nombre=informacion["nombre"], apellido=informacion["apellido"],email=informacion["email"])
                  nombre.save()
                  return render(Request, "MiApp/index.html")
     else:
