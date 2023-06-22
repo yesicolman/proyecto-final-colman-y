@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% extends 'MiApp/baseweb.html'%}
+
+{% load static %}
+
+{% block titulo%} AGREGAR GUIA DE VIAJE {%endblock titulo%}
+
+{% block main %}
+<form action="", method="POST">
+    {% csrf_token %}
+    <table>
+        {{ guia.as_table }}
+    </table>
+    <input type="submit" value="ENVIAR GUIA">
+
+</form>
+
+{% endblock main %}
