@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends 'MiApp/baseweb.html'%}
+
+{% load static %}
+
+{% block titulo%} Editar perfil {%endblock titulo%}
+
+{% block main %}
+
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        {{ editForm.as_p }}
+        {{ AvatarForm.as_p }}
+
+        <a href="{% url 'cambiar_pass' %}"> Cambiar contraseña</a><br>
+        <button type="submit"> Enviar</button>
+
+    </form>
+{% endblock main %}
