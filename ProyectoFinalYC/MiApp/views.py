@@ -2,8 +2,14 @@ from django.shortcuts import render
 from MiApp.models import Destino, Usuarios, Post, Guias, Comentario, Respuesta
 from MiApp.forms import FormContacto, AgregarDestino,BuscaDestino, AgregarGuia, AgregarComentario
 
+from accounts.models import Account
+
 def inicio(request):
-    return render(request, "MiApp/index.html")
+    try:
+        url= Account.objects.filter(id=request.user.id)[0]
+    except IndexError:
+        url= None
+    return render(request, "MiApp/baseweb.html", {url: url})
 
 def destino(request):
     return render(request, "MiApp/destinos.html")
@@ -13,6 +19,9 @@ def usuarios(request):
 
 def posts(request):
     return render(request, "MiApp/post.html")
+
+def about(request):
+    return render(request, "MiApp/about.html")
 
 #FORMULARIOS
 

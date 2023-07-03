@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends 'MiApp/baseweb.html'%}
+
+{% load static %}
+
+{% block titulo%} Confirmar borrar POST {%endblock titulo%}
+
+{% block main %}
+
+<form method="POST">
+    {% csrf_token %}
+    Estas seguro/a que desea borrar: {{ object }}
+    <input type="submit" value="Borrar">
+</form>
+
+
+{% endblock main %}

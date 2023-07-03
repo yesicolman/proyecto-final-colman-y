@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% extends 'MiApp/baseweb.html'%}
+
+{% load static %}
+
+{% block titulo%} REGISTRO {%endblock titulo%}
+
+{% block main %}
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <input type="submit" value="Registrar" class="btn btn-primary">
+
+</form>
+   
+{% endblock main %}
