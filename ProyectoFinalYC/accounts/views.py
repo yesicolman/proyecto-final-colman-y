@@ -42,7 +42,7 @@ def login_request(request):
             user = authenticate(username=usuario, password=contraseña)
             if user is not None:
                 login(request, user)
-                return redirect("inicio")
+                return redirect("List")
             else:
                 return render(request, "accounts/login.html", {"mensaje":"Datos incorrectos"})
 

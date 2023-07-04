@@ -34,7 +34,7 @@ class PostUpdateView(UpdateView):
     model = Post
     template_name= "MiApp/class_update_post.html"
     success_url = reverse_lazy("List")
-    fields = ['titulo', 'subtitulo', 'autor', 'fecha_publicacion', 'contenido']
+    fields = ['titulo', 'subtitulo', 'autor', 'fecha_publicacion', 'foto','contenido']
    
 class PostDeleteView(DeleteView):
 

@@ -15,7 +15,8 @@ def inicio(request):
 def about(request):
     return render(request, "MiApp/about.html")
 
-
+def index(request):
+    return render(request, "MiApp/index.html")
 
 #FORMULARIOS
 
@@ -29,13 +30,14 @@ def form_contacto(Request):
                  informacion = miFormulario.cleaned_data
                  nombre= Usuarios(nombre=informacion["nombre"], apellido=informacion["apellido"],email=informacion["email"],mensaje=informacion["mensaje"])
                  nombre.save()
-                 return render(Request, "MiApp/baseweb.html")
+                 return render(Request, "MiApp/form_contacto_enviado.html")
     else:
          miFormulario= FormContacto()
 
     return render(Request, "MiApp/form_contacto.html", {"miFormulario": miFormulario})
 
-
+def form_enviado(request):
+    return render(request, "MiApp/form_contacto_enviado.html")
 
 def agregar_comentario(Request):
 
