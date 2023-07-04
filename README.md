@@ -11,6 +11,7 @@ APLICACIONES:
 "accounts": gestión de perfiles de usuarios
 	
 
+
 ADMIN - SUPERUSER:
 Username: yes
 Password: Super45
@@ -31,10 +32,12 @@ cambiar_pass/
 		
 FORMULARIOS
 
+
 form_contacto/   --> toma los atributos del modelo Usuarios
 buscar_destino/  --> hace la busqueda sobre las guias cargadas
 agregar_comentario/  --> Todavia no se incorporó a las páginas, se accede solo por url
 agregar_guia/    --> Todavia no se incorporó a las páginas, se accede solo por url
+
 
 			
 CRUD POST --> Permite listar, agregar y modificar Posteos.
@@ -48,3 +51,9 @@ GUIAS -->
 guias/   ---> permite ver una lista de las guias cargadas
 detail_guia/ ---> permite ver el detalle de la guias seleccionada
 orrar_guia/<pk>/ ---> borrar guia seleccionada
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 59e50175e11f953be2ae63d870c6b74ceb8c74bb
