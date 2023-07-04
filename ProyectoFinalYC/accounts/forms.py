@@ -20,7 +20,6 @@ class EditarUsuarioForm(forms.Form):
     avatar= forms.ImageField(required=False)
 
 
-#BORRAR ESTA CLASE:
 class UserEditForm(UserCreationForm):
     email: forms.EmailField(label= "Ingrese su e-mail: ")
     password1: forms.CharField(label= "Ingresar contraseña: ", widget= forms.PasswordInput)

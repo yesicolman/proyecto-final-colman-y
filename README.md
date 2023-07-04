@@ -10,17 +10,16 @@ APLICACIONES:
 "MiApp": funcionalidades y formularios
 "accounts": gestión de perfiles de usuarios
 	
-ADMIN: SUPERUSER:
+
+ADMIN - SUPERUSER:
 Username: yes
 Password: Super45
 		
 PERFILES:
-
-username: Pass: mail 
-luke: luke3940: luke@mail.com
-caro: Caro1211: caro@mail.com
-luna: luna2670: luna@mail.com
-
+username / Pass / mail 
+luke  luke3940  luke@mail.com
+caro  Caro1211  caro@mail.com
+luna  luna2670  luna@mail.com
 
 REGISTROS DE USUARIOS + LOGIN y MODIFICACIÓN de perfil: 
 register/ 
@@ -31,10 +30,12 @@ perfil/editar/
 cambiar_pass/
 		
 FORMULARIOS
-form_contacto/
-buscar_destino/
-agregar_comentario/
-agregar_guia/
+
+form_contacto/   --> toma los atributos del modelo Usuarios
+buscar_destino/  --> hace la busqueda sobre las guias cargadas
+agregar_comentario/  --> Todavia no se incorporó a las páginas, se accede solo por url
+agregar_guia/    --> Todavia no se incorporó a las páginas, se accede solo por url
+
 			
 CRUD POST --> Permite listar, agregar y modificar Posteos.
 list_post/

@@ -4,8 +4,10 @@ from MiApp import class_views
 
 urlpatterns = [
     path('', views.inicio, name="inicio"),
+    path('index/', views.index, name="index"),
     path('about/', views.about, name="about"),
     path('form_contacto/', views.form_contacto, name="form_contacto"),
+    path('form_contacto_ok/', views.form_enviado, name="form_contacto_ok"),
     path('buscar_destino', views.buscar_destino_enguia, name="buscar_destino"),
     path('agregar_comentario', views.agregar_comentario, name="agregar_comentario"),
     path('agregar_guia', views.agregar_guia, name="agregar_guia"),
