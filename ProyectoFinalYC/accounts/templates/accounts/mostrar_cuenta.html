@@ -16,7 +16,8 @@
                         {% endif %}
                     </div>
                     <div class="flex-grow-1 ms-3">
-                        <h5 class="mb-1">{{ request.user.first_name }} {{ request.user.last_name }}</h5>
+                        <h5 class="mb-1">{{ request.user.first_name }}</h5>
+                        <h4 class="mb-1">{{ request.user.last_name }}</h4>
                         <p class="mb-2 pb-1" style="color: #2b2a2a;">Email: {{request.user.email}}</p>
                     </div>
                 </div>

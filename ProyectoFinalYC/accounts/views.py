@@ -16,7 +16,7 @@ from accounts import models
 from accounts.forms import UserEditForm
 from accounts.forms import CambiarPass
 
-# Para el registro se van a usar funciones:
+#REGISTRO DE UN NUEVO USUARIO: 
 
 def register(request):
     if request.method== 'POST':
@@ -29,6 +29,8 @@ def register(request):
         
     form= forms.RegistroUsuarioForm()
     return render(request, 'accounts/crear_cuenta.html', {'form':form})
+
+#LOGIN DE UN USUARIO EXISTENTE:
 
 def login_request(request):
     if request.method == 'POST':
@@ -46,6 +48,8 @@ def login_request(request):
 
     form = AuthenticationForm()
     return render(request, "accounts/login.html", {"form": form})
+
+#EDITAR PERFIL DE USUARIO EXISTENTE Y AGREGAR AVATAR:
 
 def editar_perfil(request):
     usuario = request.user
@@ -65,7 +69,7 @@ def editar_perfil(request):
             usuario.save()
             return redirect("mostrar_perfil")
         else:
-            return render(request, 'accounts/editar_account.html', {'form': form})
+            return render(request, 'accounts/editar_perfil.html', {'form': form})
 
     form = forms.EditarUsuarioForm(
         initial={
@@ -75,48 +79,19 @@ def editar_perfil(request):
             'avatar': modelo_perfil.avatar
         }
     )
-    return render(request, 'accounts/editar_cuenta.html', {'form': form})
+    return render(request, 'accounts/editar_perfil.html', {'form': form})
 
-def mostrar_perfil(request):
+# MOSTRAR CUENTA:
+
+def mostrar_cuenta(request):
     return render(request, 'accounts/mostrar_cuenta.html')
 
-def eliminar_perfil(request):
-    ...
-
-def cambiar_password(request):
-    ...
+# LOG OUT:
 
 class Logout(LogoutView):
     template_name= 'accounts/logout_account.html'
 
-# Vista para editar el usuario
-
-@login_required
-def editarPerfil(request):
-
-    usuario = request.user
-
-    if request.method == 'POST':
-
-        editForm = (request.POST)
-
-        if editForm.is_valid():
-
-            informacion = editForm.cleaned_data
-
-            usuario.email = informacion['email']
-            usuario.password1 = informacion['password1']
-            usuario.password2 = informacion['password2']
-            usuario.last_name = informacion['last_name']
-            usuario.first_name = informacion['first_name']
-            usuario.save()
-
-            return render(request, "MiApp/inicio.html")
-    else:
-
-        editForm = UserEditForm(initial={'email': usuario.email})
-    return render(request, "accounts/editar_perfil.html", {"editForm": editForm, "usuario": usuario})
-
+# CAMBIAR PASS:
 
 class CambiarPasswordView(LoginRequiredMixin, View):
     template_name = "accounts/cambiar_pass.html"
@@ -138,4 +113,4 @@ class CambiarPasswordView(LoginRequiredMixin, View):
             if pass1 == pass2:
                 usuario.set_password(pass1)
                 usuario.save()
-                return render(request, "MiApp/index.html")
+                return render(request, "accounts/login.html")

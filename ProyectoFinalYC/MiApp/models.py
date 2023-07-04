@@ -10,6 +10,7 @@ class Usuarios(models.Model):
     nombre = models.CharField(max_length=40)
     apellido = models.CharField(max_length=20)
     email = models.EmailField(max_length=40)
+    mensaje= models.CharField(max_length=500,null=False,default="mensaje no encontrado")
 
 class Post(models.Model):
 
