@@ -46,10 +46,10 @@
                         <li class="nav-item"><a class="nav-link" href="{%url 'Guias'%}">Guias</a></li>
                         <li class="nav-item"><a class="nav-link" href="{%url 'agregar_guia'%}">Agregar Guia</a></li>
                         <li class="nav-item"><a class="nav-link" href="{%url 'buscar_destino'%}">Buscar Guias</a></li>
-                        <a class="navbar-brand" href="{% url 'logout' %}">Logout</a>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a>
 
                     {% else %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Sign Up</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Registro</a></li>
 
                     
