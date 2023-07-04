@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% extends 'MiApp/baseweb.html'%}
+
+{% load static %}
+
+{% block titulo%} GUIAS DE DESTINO {%endblock titulo%}
+
+{% block main %}
+
+<div class="row">
+    {% for guias in object_list %}
+    <div class="card" style="width: 18rem; margin:0 auto;">
+        <div class="card-body">
+          <h5 class="card-title">{{ guias.titulo}} </h5>
+          <h6 class="card-title">{{ guias.destino}} </h6>
+          <p class="card-text"> Autor: {{ guias.autor}} </p>
+          <a href="{%url 'Detail_Guia' guias.id %}" class="btn btn-primary">Ver </a>
+          <a href="{%url 'Delete_Guia' guias.id %}">Borrar</a>
+        </div>
+      </div>
+    {% endfor %}
+    
+    </div>
+    
+{% endblock main %}

@@ -6,15 +6,14 @@
 {% block titulo%} Editar perfil {%endblock titulo%}
 
 {% block main %}
+    <form method="POST" class= "m-2" enctype= 'multipart/form-data'>
+    {% csrf_token %}
+    {{ form.as_p }}
 
-    <form action="" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        
-        {{ editForm.as_p }}
-        {{ AvatarForm.as_p }}
+    <a href="{% url 'cambiar_pass' %}"> Cambiar contraseña</a><br>
+    <button type="submit"> Enviar</button>
+    <a href="{% url 'List'%}" class="btn btn-primary"> Regresar sin editar </a>
+</form>
 
-        <a href="{% url 'cambiar_pass' %}"> Cambiar contraseña</a><br>
-        <button type="submit"> Enviar</button>
-
-    </form>
+   
 {% endblock main %}

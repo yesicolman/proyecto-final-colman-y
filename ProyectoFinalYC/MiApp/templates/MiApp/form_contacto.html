@@ -7,13 +7,12 @@
 
 {% block main %}
 
-<form action="", method="POST">
+<form action="" method="POST" style="margin: 20px;">
     {% csrf_token %}
     <table>
         {{ miFormulario.as_table }}
     </table>
-    <input type="submit" value="ENVIAR CONTACTO">
-
+    <button type="submit" style="background-color: rgb(76, 78, 77); color: white;">ENVIAR MENSAJE</button>
 </form>
    
 {% endblock main %}

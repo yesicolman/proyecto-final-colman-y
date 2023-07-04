@@ -6,7 +6,7 @@
 {% block titulo%} AGREGAR GUIA DE VIAJE {%endblock titulo%}
 
 {% block main %}
-<form action="", method="POST">
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <table>
         {{ guia.as_table }}

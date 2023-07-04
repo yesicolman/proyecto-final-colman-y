@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% extends 'MiApp/baseweb.html'%}
+
+{% load static %}
+
+{% block titulo%} GUIAS CARGADAS {%endblock titulo%}
+
+{% block main %}
+<div class="post" style="width: 50rem; margin:0 auto;">
+<h1>{{guias.titulo}}</h1>
+
+<h2>{{guias.subtitulo}}</h2>
+
+<p>_________________________________________________________________________</p>
+<p>Por: {{guias.autor}}</p> 
+
+<p>Destino: {{guias.destino}}</p>
+
+
+{% if foto %}
+  <img src="{{ foto.url }}" alt="Foto" style="max-width: 500px; max-height: 500px;"><br>
+{% else %}
+  <p>...</p>
+{% endif %}
+
+{{guias.contenido}} <br>
+<br>
+
+
+<a href="{% url 'Guias'%}" class="btn btn-primary"> Regresar </a>
+</div>
+ 
+{% endblock main %}
