@@ -1,50 +1,52 @@
-# proyecto-final-colman-y
+ENTREGA DEL PROYECTO FINAL
+	
+Crear web similar a un blog
 
-Objetivos generales
-PreEntrega Nro 3
-Nombre: Yesica Colman
+LINK DE GITHUB con el proyecto totalmente subido a la plataforma --> https://github.com/yesicolman/proyecto-final-colman-y.git
+	
+El proyecto se llama "ProyectoFinalYC"
 
-Desarrollar una WEB Django con patrón MVT subida a Github.
-Se debe entregar
+APLICACIONES: 
+"MiApp": funcionalidades y formularios
+"accounts": gestión de perfiles de usuarios
+	
+ADMIN - SUPERUSER:
+Username: yes
+Password: Super45
+		
+PERFILES:
 
-1. Link de GitHub con el proyecto totalmente subido a la plataforma --> https://github.com/yesicolman/proyecto-final-colman-y.git
-2. Proyecto Web Django con patrón MVT que incluya: El proyecto se llama "ProyectoFinalYC" y se agregó Startapp "MiApp"
-        a. Herencia de HTML
-        Se incorporó dentro de la carpeta templates/MiApp el archivo --> baseweb.html con el header y footer que serán heredados por el resto de templates y navegación dentro de la página web -->  {% extends 'MiApp/baseweb.html'%}
-        
-        b. URL que se pueden consultar:
-
-        destinos/
-        usuarios/
-        post/
+username / Pass / mail 
+luke  luke3940  luke@mail.com
+caro  Caro1211  caro@mail.com
+luna  luna2670  luna@mail.com
 
 
-        form_contacto/
-        agregar_destino/
-        buscar_destino/
-        agregar_comentario/
-        agregar_guía/
+REGISTROS DE USUARIOS + LOGIN y MODIFICACIÓN de perfil: 
+register/ 
+login/
+logout/
+perfil/
+perfil/editar/
+cambiar_pass/
+		
+FORMULARIOS
+form_contacto/
+buscar_destino/
+agregar_comentario/
+agregar_guia/
+			
+CRUD POST --> Permite listar, agregar y modificar Posteos.
+list_post/
+crear_post/
+detail_post/
+update_post/
+delete_post/
 
-3. Por lo menos 3 clases en models:
-La idea es empezar a trabar con un blog de viajes y se crearon en principio 3 modelos, y para la re entrega 2 adicionales para incorporar formularios:
+GUIAS --> 
+guias/   ---> permite ver una lista de las guias cargadas
+detail_guia/ ---> permite ver el detalle de la guias seleccionada
+orrar_guia/<pk>/ ---> borrar guia seleccionada
 
-        Destinos
-        Usuarios
-        Post
-        Guias
-        Comentario
-        Respuesta
-
-4. Un formulario para insertar datos a todas las clases de tu models --> 
-        Entrega 1: Se crearon las funciones de form_contacto y agregar_destino (se pueden acceder por la Nav)
-        REENTREGA: Ademas del formulario de Contacto y Agregar Destino se incorporó la opción de: 
-                agregar_comentario/
-                agregar_guía/
-                
-                Se acceden a ambos por NAV
-
-5. Un formulario para buscar algo en la BD ---> La url es /buscar_destino o se puede acceder por la nav 
-
-6. Readme que indique el orden en el que se prueban las cosas y/o donde están las funcionalidades.
 
 
