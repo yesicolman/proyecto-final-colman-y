@@ -10,16 +10,16 @@ APLICACIONES:
 "MiApp": funcionalidades y formularios
 "accounts": gestión de perfiles de usuarios
 	
-ADMIN - SUPERUSER:
+ADMIN: SUPERUSER:
 Username: yes
 Password: Super45
 		
 PERFILES:
 
-username / Pass / mail 
-luke  luke3940  luke@mail.com
-caro  Caro1211  caro@mail.com
-luna  luna2670  luna@mail.com
+username: Pass: mail 
+luke: luke3940: luke@mail.com
+caro: Caro1211: caro@mail.com
+luna: luna2670: luna@mail.com
 
 
 REGISTROS DE USUARIOS + LOGIN y MODIFICACIÓN de perfil: 
