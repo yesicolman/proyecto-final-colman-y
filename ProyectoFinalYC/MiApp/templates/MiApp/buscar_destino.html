@@ -7,13 +7,14 @@
 
 {% block main %}
 
-<form action="" method="POST">
+<form action="" method="POST" class="my-form">
     {% csrf_token %}
-    <table>
-        {{ buscar_form.as_table }}
-    </table>
-    <input type="submit" value="Buscar">
-
+    <div class="form-group">
+        <table>
+            {{ buscar_form.as_table }}
+        </table>
+    </div>
+    <button type="submit" class="btn btn-primary">BUSCAR</button>
 </form>
-   
+
 {% endblock main %}

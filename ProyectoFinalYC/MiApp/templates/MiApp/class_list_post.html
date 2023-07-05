@@ -3,24 +3,32 @@
 
 {% load static %}
 
-{% block titulo%} ULTIMOS POSTS {%endblock titulo%}
+{% block titulo%} LIST POSTS {%endblock titulo%}
 
 {% block main %}
 
 <div class="row">
 {% for post in object_list %}
 <div class="card" style="width: 18rem; margin:0 auto;">
-    <img src="{{ post.foto.url }}" class="card-img-top" alt="">
+  <img src="{{ post.foto.url }}" class="card-img-top" alt="">
     <div class="card-body">
       <h5 class="card-title">{{ post.titulo}}</h5>
       <p class="card-text"> Autor: {{ post.autor}}</p>
       <a href="{%url 'Detail' post.id %}" class="btn btn-primary">Ver </a>
+      {% if request.user.is_staff %}
       <a href="{%url 'Update' post.id %}">Editar</a>
       <a href="{%url 'Delete' post.id %}">Borrar</a>
+      {% endif %}
     </div>
-  </div>
+</div>
 {% endfor %}
 
+<a href="{% url 'agregar_comentario' %}" class="btn btn-primary btn-lg" role="button">--Agregar comentario--</a>
+
+{% if request.user.is_staff %}
+<div class="card" style="width: 18rem; margin:0 auto;">
+    <a href="{% url 'create' %}" class="btn btn-secondary">CLICK PARA CREAR NUEVO POST</a> 
+{% endif %}
 </div>
 
 {% endblock main %}

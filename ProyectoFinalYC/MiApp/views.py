@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from MiApp.models import Destino, Usuarios, Post, Guias, Comentario, Respuesta
 from MiApp.forms import FormContacto, AgregarGuia, AgregarComentario, BuscaDestinoEnGuia
+from django.contrib.auth.decorators import login_required
 
 from accounts.models import Account
 from django.shortcuts import redirect
@@ -14,6 +15,8 @@ def inicio(request):
 
 def about(request):
     return render(request, "MiApp/about.html")
+
+# PARA ACCEDER AL TEMPLATE ORIGINAL BOOTSTRAP:
 
 def index(request):
     return render(request, "MiApp/index.html")
@@ -55,23 +58,35 @@ def agregar_comentario(Request):
 
     return render(Request, "MiApp/agregar_comentario.html", {"miComent": miComent})
 
-
+@login_required
 def agregar_guia(Request):
-
     if Request.method == "POST":
             guia= AgregarGuia(Request.POST, Request.FILES)
+            
+            #if not Request.user.is_staff:
+                #guia.fields['foto'].disabled = True
+            
             print(guia)
 
             if guia.is_valid():
-                 informacion = guia.cleaned_data
-                 nombre= Guias(autor=informacion["autor"], titulo=informacion["titulo"], subtitulo=informacion["subtitulo"],
-                               destino=informacion["destino"],pais=informacion["pais"],foto=Request.FILES["foto"], contenido=informacion["contenido"])
-                 nombre.save()
-                 return redirect("Guias")
+                informacion = guia.cleaned_data
+                nombre= Guias(
+                    #autor=informacion["autor"],
+                    autor=Request.user,
+                    titulo=informacion["titulo"],
+                    subtitulo=informacion["subtitulo"],                    
+                    destino=informacion["destino"],
+                    pais=informacion["pais"],
+                    foto=Request.FILES["foto"],
+                    contenido=informacion["contenido"]
+                )
+                nombre.save()
+                return redirect("Guias")
     else:
          guia= AgregarGuia()
 
-    return render(Request, "MiApp/agregar_guia.html", {"guia": guia})
+    #return render(Request, "MiApp/agregar_guia.html", {"guia": guia})
+    return render(Request, "MiApp/agregar_guia.html", {"guia": guia, 'request': Request})
 
 
 def buscar_destino_enguia(request):
@@ -81,7 +96,7 @@ def buscar_destino_enguia(request):
         if buscar_form.is_valid():
             info = buscar_form.cleaned_data
             guias = Guias.objects.filter(destino__icontains=info["destino"])
-            return render(request, "MiApp/lista_guias_busqueda.html", {"guias": guias})
+            return render(request, "MiApp/lista_guias_busqueda.html", {"guias": guias, 'request': request })
     else:
         buscar_form = BuscaDestinoEnGuia()
         return render(request, "MiApp/buscar_destino.html", {"buscar_form": buscar_form})

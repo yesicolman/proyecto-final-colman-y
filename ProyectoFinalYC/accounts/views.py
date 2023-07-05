@@ -96,7 +96,7 @@ class Logout(LogoutView):
 class CambiarPasswordView(LoginRequiredMixin, View):
     template_name = "accounts/cambiar_pass.html"
     form_class = CambiarPass
-    success_url = reverse_lazy("Inicio")
+    success_url = reverse_lazy("inicio")
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name, {"form": self.form_class})
@@ -114,3 +114,4 @@ class CambiarPasswordView(LoginRequiredMixin, View):
                 usuario.set_password(pass1)
                 usuario.save()
                 return render(request, "accounts/login.html")
+            
