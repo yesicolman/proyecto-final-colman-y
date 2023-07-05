@@ -7,35 +7,12 @@
 
 {% block main %}
 <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <table>
-        <tr>
-            <td>Titulo:</td>
-            <td>{{ guia.titulo }}</td>
-        </tr>
-        <tr>
-            <td>Subtitulo:</td>
-            <td>{{ guia.subtitulo }}</td>
-        </tr>
-        <tr>
-            <td>Destino:</td>
-            <td>{{ guia.destino }}</td>
-        </tr>
-        <tr>
-            <td>Pais:</td>
-            <td>{{ guia.pais }}</td>
-        </tr>
-        <tr>
-            <td>Foto:</td>
-            <td>{{ guia.foto }}</td>
-        </tr>
-        <tr>
-            <td>Contenido:</td>
-            <td>{{ guia.contenido }}</td>
-        </tr>
-    </table>
+{% csrf_token %}
+<table>
+{{ guia.as_table }}
+</table>
 
-    <input type="submit" value="ENVIAR GUIA">
+<input type="submit" value="ENVIAR GUIA">
     
 </form>
 

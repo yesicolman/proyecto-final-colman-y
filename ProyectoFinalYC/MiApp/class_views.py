@@ -58,7 +58,7 @@ class GuiaUpdateView(LoginRequiredMixin, UpdateView):
     model = Guias
     template_name= "MiApp/class_update_guia.html"
     success_url = reverse_lazy("Guias")
-    fields = ['autor','titulo', 'subtitulo', 'destino', 'pais', 'foto','contenido']
+    fields = ['titulo', 'subtitulo', 'destino', 'pais', 'foto','contenido']
 
 class GuiaDeleteView(DeleteView):
     model = Guias

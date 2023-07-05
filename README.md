@@ -51,9 +51,3 @@ GUIAS -->
 guias/   ---> permite ver una lista de las guias cargadas
 detail_guia/ ---> permite ver el detalle de la guias seleccionada
 orrar_guia/<pk>/ ---> borrar guia seleccionada
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> 59e50175e11f953be2ae63d870c6b74ceb8c74bb
