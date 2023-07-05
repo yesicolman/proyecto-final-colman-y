@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'MiApp',
     'accounts',
+    'MiApp.templatetags'
 ]
 
 MIDDLEWARE = [

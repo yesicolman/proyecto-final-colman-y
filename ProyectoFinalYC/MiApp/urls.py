@@ -24,8 +24,9 @@ urlpatterns += [
     path('update_post/<pk>/', class_views.PostUpdateView.as_view(), name="Update"),
     path('delete_post/<pk>/', class_views.PostDeleteView.as_view(), name="Delete"),
 
-    #--> GUIAS
+    #--> CRUD GUIAS
     path('guias/', class_views.GuiaListView.as_view(), name="Guias"),
     path('detail_guia/<pk>/', class_views.GuiaDetailView.as_view(), name="Detail_Guia"),
+    path('update_guia/<pk>/', class_views.GuiaUpdateView.as_view(), name="Update_Guia"),
     path('borrar_guia/<pk>/', class_views.GuiaDeleteView.as_view(), name="Delete_Guia")
 ]

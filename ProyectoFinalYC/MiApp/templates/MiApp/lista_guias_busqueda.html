@@ -8,6 +8,7 @@
 {% block main %}
 
 <div class="row">
+  {% if guias %}
     {% for guias in guias %}
     <div class="card" style="width: 18rem; margin:0 auto;">
         <div class="card-body">
@@ -15,11 +16,17 @@
           <h6 class="card-title">{{ guias.destino}} </h6>
           <p class="card-text"> Autor: {{ guias.autor}} </p>
           <a href="{%url 'Detail_Guia' guias.id %}" class="btn btn-primary">Ver </a>
+          {% if request.user.is_staff or request.user|stringformat:"s" == guias.autor %}          
+          <a href="{%url 'Update_Guia' guias.id %}">Editar</a>
           <a href="{%url 'Delete_Guia' guias.id %}">Borrar</a>
+          {% endif %}
         </div>
-      </div>
-    {% endfor %}
-    
     </div>
+    {% endfor %}
+  {% else %}
+        <h4>No se han encontrado resultados</h4>
+  {% endif %}
+  <a href="{% url 'Guias' %}" class="btn btn-primary btn-lg" role="button">--REGRESAR--</a>
+  </div>
     
 {% endblock main %}

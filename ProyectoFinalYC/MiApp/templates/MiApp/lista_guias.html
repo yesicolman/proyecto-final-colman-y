@@ -2,6 +2,7 @@
 {% extends 'MiApp/baseweb.html'%}
 
 {% load static %}
+{% load custom_filters %}
 
 {% block titulo%} GUIAS DE DESTINO {%endblock titulo%}
 
@@ -15,11 +16,16 @@
           <h6 class="card-title">{{ guias.destino}} </h6>
           <p class="card-text"> Autor: {{ guias.autor}} </p>
           <a href="{%url 'Detail_Guia' guias.id %}" class="btn btn-primary">Ver </a>
-          <a href="{%url 'Delete_Guia' guias.id %}">Borrar</a>
+          {% if request.user.is_staff or request.user|stringformat:"s" == guias.autor %}
+          <a href="{%url 'Update_Guia' guias.id %}">Editar</a>
+          <a href="{%url 'Delete_Guia' guias.id %}">Borrar</a>          
+          {% endif %}          
         </div>
-      </div>
-    {% endfor %}
-    
     </div>
+    {% endfor %}
+  
+  <a href="{% url 'buscar_destino' %}" class="btn btn-primary btn-lg" role="button">--BUSCAR DESTINO--</a>
+
+  </div>
     
 {% endblock main %}

@@ -10,7 +10,9 @@
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
+    {% if request.user.is_staff %}
     <input type="submit" value="Actualizar">
+    {% endif %}    
 </form>
 
 {% endblock main %}
